@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 
 
-mongoose.connect('mongodb+srv://Taoufiq:Taoufiq@cluster0.atxzc.mongodb.net/MonPermis?retryWrites=true&w=majority' , {
+mongoose.connect('mongodb+srv://TARIK:tarekm@cluster0.4o7xo.mongodb.net/Permis?retryWrites=true&w=majority' , {
   useNewUrlParser: true
 }).then(() => {
   console.log("Successfully connected to the database");    

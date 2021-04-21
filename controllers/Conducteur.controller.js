@@ -41,7 +41,7 @@ const addConducteur = async (req, res) => {
           const numero_de_Permis = req.body.numero_de_Permis; 
           const nombre_de_Point = "30";
           const validateCompte = false;
-          const infraction = "NO infraction yet"
+          const infraction = "pas encore d'infraction"
          
           const ConducteurPush = new Conducteur({
               matricule,
@@ -58,7 +58,7 @@ const addConducteur = async (req, res) => {
            ConducteurPush
           
               .save()
-              .then(() => res.json("Conducteur ADDED!!!!!"))
+              .then(() => res.json("Conducteur AJOUTÉ!"))
               .catch((err) => res.status(400).json("Error :" + err));
       });
   // ----------------------send email validation -------------------------------   
@@ -75,7 +75,7 @@ const addConducteur = async (req, res) => {
         await transport.sendMail({
             from: 'tarek.brief@gmail.com',
             to: req.body.email,
-            subject: "Email Activated Account",
+            subject: "Email Compte Activé",
             html: `
             <h2>Please click on below link to activate your account</h2>
             <p>https://permis-backend-api.herokuapp.com/Conducteur/activateCompte/${token}</p>
@@ -96,7 +96,7 @@ const addConducteur = async (req, res) => {
        await Conducteur.findOneAndUpdate({ matricule: matricule },{validateCompte : true});
     
        res.json({
-               message : "your account validated succeffully"
+               message : "Votre Compte est validé"
        });
     }
     
@@ -176,7 +176,7 @@ const addConducteur = async (req, res) => {
       const deconnect = res.clearCookie("token")
     
       res.json({
-          message: 'Conducteur is Signout !!'
+          message: 'Conducteur logout!'
       })
     }
   
