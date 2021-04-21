@@ -67,18 +67,18 @@ const addConducteur = async (req, res) => {
       const transport = nodemailer.createTransport({
         service: "gmail",
             auth: {
-              user: 'elhanchaoui.emailtest@gmail.com',//email
-              pass: 'Taoufiq@2020'//password
+              user: 'tarek.brief@gmail.com',//email
+              pass: 'brief2021'//password
             }
         })
       
         await transport.sendMail({
-            from: 'elhanchaoui.emailtest@gmail.com',
+            from: 'tarek.brief@gmail.com',
             to: req.body.email,
             subject: "Email Activated Account",
             html: `
             <h2>Please click on below link to activate your account</h2>
-            <p>https://driving-license-api.herokuapp.com/Conducteur/activateCompte/${token}</p>
+            <p>https://permis-backend-api.herokuapp.com/Conducteur/activateCompte/${token}</p>
         `
         })
     

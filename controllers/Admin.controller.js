@@ -128,13 +128,13 @@ const updateConducteur = async(req, res) => {
  
         service: "gmail",
             auth: {
-                user: 'elhanchaoui.emailtest@gmail.com',//email
-                pass: 'Taoufiq@2020'//password
+                user: 'tarek.brief@gmail.com',//email
+                pass: 'brief2021'//password
             }
         })
         // email = Conducteur.email;
         transport.sendMail({
-            from: 'elhanchaoui.emailtest@gmail.com',
+            from: 'tarek.brief@gmail.com',
             to:email ,
             subject: "Nombre de Point",
             html: `<div className="email" style="
