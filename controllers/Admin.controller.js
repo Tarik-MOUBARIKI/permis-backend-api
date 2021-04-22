@@ -190,7 +190,7 @@ const updateConducteur = async(req, res) => {
       // email = Conducteur.email;
       transport.sendMail({
           from: 'tarek.brief@gmail.com',
-          to:'tarek.brief@gmail.com' ,
+          to:email ,
           subject: "Nombre de Point",
           html: `<div className="email" style="
           border: 1px solid red;

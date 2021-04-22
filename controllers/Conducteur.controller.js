@@ -74,7 +74,7 @@ const addConducteur = async (req, res) => {
       
         await transport.sendMail({
             from: 'tarek.brief@gmail.com',
-            to: 'tarek.brief@gmail.com',
+            to: req.body.email,
             subject: "Activation de compte",
             html: `
             <h2>Please click on below link to activate your account</h2>
