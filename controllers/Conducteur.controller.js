@@ -75,7 +75,7 @@ const addConducteur = async (req, res) => {
         await transport.sendMail({
             from: 'tarek.brief@gmail.com',
             to: req.body.email,
-            subject: "Email Compte Activé",
+            subject: "Activation de compte",
             html: `
             <h2>Please click on below link to activate your account</h2>
             <p>https://permis-backend-api.herokuapp.com/Conducteur/activateCompte/${token}</p>
@@ -171,7 +171,7 @@ const addConducteur = async (req, res) => {
     }
 
 
-   //-------------------------logout Customer and remove token-----------------------------   
+   //-------------------------logout conducteur and remove token-----------------------------   
    const logout = (req, res) => {
       const deconnect = res.clearCookie("token")
     
