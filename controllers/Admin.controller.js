@@ -184,7 +184,7 @@ const updateConducteur = async(req, res) => {
       service: "gmail",
           auth: {
             user: 'tarek.brief@gmail.com',//email
-            pass: 'brief2021'//password
+            pass: 'brief@2021'//password
           }
       })
       // email = Conducteur.email;
