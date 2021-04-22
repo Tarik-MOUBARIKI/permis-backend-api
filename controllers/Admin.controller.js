@@ -107,112 +107,54 @@ const addAdmin = (req, res) => {
           })
         }
   //________________________updating Conducteur____________________
-// const updateConducteur = async(req, res) => {
-//     // Find Product By ID and update it
-//     Conducteur.updateOne({
-//         _id: req.params.id
-//       }, {
-//         nombre_de_Point: req.body.nombre_de_Point,
-//         infraction:req.body.infraction
-//       })
-//       .then(() => res.status(201))
-//       .catch((err) => res.status(400).json("Error :" + err));
+const updateConducteur = async(req, res) => {
+    // Find Product By ID and update it
+    Conducteur.updateOne({
+        _id: req.params.id
+      }, {
+        nombre_de_Point: req.body.nombre_de_Point,
+        infraction:req.body.infraction
+      })
+      .then(() => res.status(201))
+      .catch((err) => res.status(400).json("Error :" + err));
 
-//         Conducteur.findById(req.params.id)
-//             .then(Conducteur => {
-//               res.status(200).json(Conducteur.email);
-//               email = Conducteur.email;
+        Conducteur.findById(req.params.id)
+            .then(Conducteur => {
+              res.status(200).json(Conducteur.email);
+              email = Conducteur.email;
              
           // send notification in email
-  //     const transport = nodemailer.createTransport({
-  //       host: "smtp.gmail.com",
-  //       port: 587,
-  //       secure: false,
-  //           auth: {
-  //               user: 'aibiyassin29@gmail.com',//email
-  //               pass: 'NEVERgiveUP'//password
-  //           },
-  //           tls: {
-  //             rejectUnauthorized: false
-  //           }
-  //       })
-  //       // email = Conducteur.email;
-  //       transport.sendMail({
-  //           from: 'tarek.brief@gmail.com',
-  //           to: 'moubariki.tarik@gmail.com' , //email
-  //           subject: "Nombre de Point",
-  //           html: `<div className="email" style="
-  //           border: 1px solid red;
-  //           padding: 20px;
-  //           font-family: sans-serif;
-  //           line-height: 2;
-  //           font-size: 20px;
-  //           text-align: center; 
-  //           color:red;
-  //           ">
-  //           <h2>We sorry to know that</h2>
-  //           <h4>Your Point changed to ${req.body.nombre_de_Point}</h4>
-  //           <h4>Because of ${req.body.infraction}</h4>
-  //           <p>Please pay attention<p>
-  //            </div>
-  //       `
-  //       })
-  //     })
-  // };
-
-
-
-const updateConducteur = async(req, res) => {
-  // Find Product By ID and update it
-  Conducteur.updateOne({
-      _id: req.params.id
-    }, {
-      nombre_de_Point: req.body.nombre_de_Point,
-      infraction:req.body.infraction
-    })
-    .then(() => res.status(201))
-    .catch((err) => res.status(400).json("Error :" + err));
-
-      Conducteur.findById(req.params.id)
-          .then(Conducteur => {
-            res.status(200).json(Conducteur.email);
-            email = Conducteur.email;
-
-        // send notification in email
-    const transport = nodemailer.createTransport({
-
-      service: "gmail",
-          auth: {
-            user: 'tarek.brief@gmail.com',//email
-            pass: 'brief@2021'//password
-          }
+      const transport = nodemailer.createTransport({
+ 
+        service: "gmail",
+            auth: {
+                user: 'elhanchaoui.emailtest@gmail.com',//email
+                pass: 'Taoufiq@2020'//password
+            }
+        })
+        // email = Conducteur.email;
+        transport.sendMail({
+            from: 'elhanchaoui.emailtest@gmail.com',
+            to:email ,
+            subject: "Nombre de Point",
+            html: `<div className="email" style="
+            border: 1px solid red;
+            padding: 20px;
+            font-family: sans-serif;
+            line-height: 2;
+            font-size: 20px;
+            text-align: center; 
+            color:red;
+            ">
+            <h2>We sorry to know that</h2>
+            <h4>Your Point changed to ${req.body.nombre_de_Point}</h4>
+            <h4>Because of ${req.body.infraction}</h4>
+            <p>Please pay attention<p>
+             </div>
+        `
+        })
       })
-      // email = Conducteur.email;
-      transport.sendMail({
-          from: 'tarek.brief@gmail.com',
-          to:email ,
-          subject: "Nombre de Point",
-          html: `<div className="email" style="
-          border: 1px solid red;
-          padding: 20px;
-          font-family: sans-serif;
-          line-height: 2;
-          font-size: 20px;
-          text-align: center; 
-          color:red;
-          ">
-          <h2>We sorry to know that</h2>
-          <h4>Your Point changed to ${req.body.nombre_de_Point}</h4>
-          <h4>Because of ${req.body.infraction}</h4>
-          <p>Please pay attention<p>
-           </div>
-           `
-      
-      })
-    })
-};
-
-// Message @Taoufiq EL Hanchaoui
+  };
   
       //-------------------------get All Conducteur-----------------------------   
   

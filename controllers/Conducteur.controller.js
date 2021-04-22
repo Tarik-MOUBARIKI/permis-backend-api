@@ -41,7 +41,7 @@ const addConducteur = async (req, res) => {
           const numero_de_Permis = req.body.numero_de_Permis; 
           const nombre_de_Point = "30";
           const validateCompte = false;
-          const infraction = "pas encore d'infraction"
+          const infraction = "NO infraction yet"
          
           const ConducteurPush = new Conducteur({
               matricule,
@@ -58,7 +58,7 @@ const addConducteur = async (req, res) => {
            ConducteurPush
           
               .save()
-              .then(() => res.json("Conducteur AJOUTÉ!"))
+              .then(() => res.json("Conducteur ADDED!!!!!"))
               .catch((err) => res.status(400).json("Error :" + err));
       });
   // ----------------------send email validation -------------------------------   
@@ -67,18 +67,18 @@ const addConducteur = async (req, res) => {
       const transport = nodemailer.createTransport({
         service: "gmail",
             auth: {
-              user: 'tarek.brief@gmail.com',//email
-              pass: 'brief@2021'//password
+              user: 'elhanchaoui.emailtest@gmail.com',//email
+              pass: 'Taoufiq@2020'//password
             }
         })
       
         await transport.sendMail({
-            from: 'tarek.brief@gmail.com',
+            from: 'elhanchaoui.emailtest@gmail.com',
             to: req.body.email,
-            subject: "Activation de compte",
+            subject: "Email Activated Account",
             html: `
             <h2>Please click on below link to activate your account</h2>
-            <p>https://permis-backend-api.herokuapp.com/Conducteur/activateCompte/${token}</p>
+            <p>https://driving-license-api.herokuapp.com/Conducteur/activateCompte/${token}</p>
         `
         })
     
@@ -96,7 +96,7 @@ const addConducteur = async (req, res) => {
        await Conducteur.findOneAndUpdate({ matricule: matricule },{validateCompte : true});
     
        res.json({
-               message : "Votre Compte est validé"
+               message : "your account validated succeffully"
        });
     }
     
@@ -171,12 +171,12 @@ const addConducteur = async (req, res) => {
     }
 
 
-   //-------------------------logout conducteur and remove token-----------------------------   
+   //-------------------------logout Customer and remove token-----------------------------   
    const logout = (req, res) => {
       const deconnect = res.clearCookie("token")
     
       res.json({
-          message: 'Conducteur logout!'
+          message: 'Conducteur is Signout !!'
       })
     }
   

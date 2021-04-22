@@ -26,7 +26,7 @@ mongoose.connect('mongodb+srv://TARIK:tarekm@cluster0.4o7xo.mongodb.net/Permis?r
   console.log("Successfully connected to the database");    
 }).catch(err => {
   console.log('Could not connect to the database. Exiting now...', err);
-  // logger.exit();
+  logger.exit();
 });
 
 
